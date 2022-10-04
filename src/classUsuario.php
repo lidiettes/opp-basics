@@ -2,13 +2,14 @@
 
 class Usuario {
 //Propiedades
-
+    public $intDpi;
     public $strNombre;
     public $strEmail;
     private $strClave;
 
 //constructor
-    function __construct(string $nombre, string $email){
+    function __construct(int $dpi, string $nombre, string $email){
+        $this-> intDpi = $dpi;
         $this-> strNombre = $nombre;
         $this-> strEmail = $email;
         $this-> strClave = rand();
@@ -26,10 +27,15 @@ public function getEmail():string{
 }
 
 public function getPerfil(){
-    echo "Datos del usuario <br>";
-    echo "Nombre: ". $this-> strNombre."<br>";
-    echo "Email: ". $this-> strEmail."<br>";
-    echo "Clave: ". $this-> strClave."<br>";
+
+    $datos = "
+    <h2>Datos personales</h2>
+    DPI: {$this->intDpi}<br>
+    Nombre: {$this->strNombre}<br>
+    Edad:{$this->strEmail}<br>
+    ";
+    
+    return $datos;
 }
 
 
